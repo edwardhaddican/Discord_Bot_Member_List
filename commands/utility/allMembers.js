@@ -15,14 +15,15 @@ module.exports = {
     await interaction.deferReply({ ephemeral: true });
 
     const serverInfo = await getServerInfo(interaction);
-    const members = serverInfo.forEach((e) => {
-      console.log(e, " I am e");
+    const members = serverInfo.map((e) => {
+      console.log(e.user, " I am e");
+      return { username: e.user.username, id: e.user.id };
     });
 
-    console.log(serverInfo, "serveri info");
+    console.log(members, "serveri info");
     // await interaction.reply({content: 'hello world'});
 
-    interaction.editReply({ embeds: ['hello world'] });
+    interaction.editReply({ embeds: ["hello world"] });
 
     //   const list = interaction.member.guilds.get(guildId);
     // console.log(list, "list");
