@@ -57,7 +57,7 @@ async function exportDataAsCSVFile(membersArrOfObjects) {
     // const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8," });
     // const objUrl = URL.createObjectURL(blob);
 
-    // Now we need to download our file, we will use this
+    // Now we will use fs to wrtie our file to our system.
 
     fs.writeFile("allMembersList.csv", csvContent, (error) => {
       if (error) {
@@ -66,8 +66,6 @@ async function exportDataAsCSVFile(membersArrOfObjects) {
         console.log("File saved successfully");
       }
     });
-
-
   } catch (error) {
     console.log(error);
   }
